@@ -32,6 +32,7 @@
     "avaliacoes_max": 349,
     "exige_celular": true,
     "exige_site": false,
+    "cidades": ["Ipatinga MG", "Coronel Fabriciano MG", "Timóteo MG", "Governador Valadares MG"],
     "seguidores_min": null,
     "seguidores_max": null
   },

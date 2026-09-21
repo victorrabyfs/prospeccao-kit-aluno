@@ -98,6 +98,9 @@ Formato: **data · o que aconteceu → o que mudou.**
 - 21/set/2026 · Ipatinga MG: a checagem do @ ficou rígida demais e recusou @rinnovare_odonto ("saúde") e @mitchellodontologia ("integrada") → saúde, estética, integrada, especializada, espaço, instituto e consultório entraram nas genéricas.
 - 21/set/2026 · Ipatinga MG: marca de duas letras ("HB") não vira palavra de marca, e a checagem caiu em "odontologia": HB Odontologia ficou com um @ de São Paulo e o CNPJ de "HB Inspeções" (mesmo CEP). Corrigido à mão; marca curta pede conferência humana.
 - 21/set/2026 · Ipatinga MG: a busca do Maps em Ipatinga trouxe a Dentista do Povo de Uberlândia (600 km). O kit não confere a cidade do lead contra a praça.
+- 21/set/2026 · Governador Valadares MG: 14 de 50 empresas eram de outras cidades (Alfenas, Juiz de Fora, Extrema, Uberaba...) com endereço na "Rua/Av. Governador Valadares"; em Timóteo, a Sallute de Guarulhos (Av. Dr. Timóteo Penteado). O Maps casa o nome da cidade com o nome da rua → requisito `cidades` no nicho: lead de outra cidade sai da lista, com o motivo.
+- 21/set/2026 · Coronel Fabriciano e Timóteo: o mesmo CNPJ caiu em 3 empresas do mesmo prédio (mesmo CEP), e a busca do @ trouxe perfil de dermatologista, de candidato a deputado e de clínica de SP. Nome curto e nome de pessoa pedem conferência humana; "avançada", "moderna", "personalizada" e "implantes" viraram genéricas.
+- 21/set/2026 · o Apify devolveu 402 (crédito acabou) com US$ 2,27 usados de 5, e 408 (tempo esgotado) em lotes grandes de CNPJ. Rodar de novo a etapa resolveu nos dois casos.
 
 ## Critérios citados e ainda não medidos
 
