@@ -177,7 +177,7 @@ diz "condomínio" no site — isso é quem ela atende, não o que ela é.
 | `SUPABASE_DB_URL` | tudo | `node prospectar.mjs listar --nicho <qualquer>` responde a tabela vazia |
 | schema aplicado | tudo | o comando acima não reclama de relação inexistente |
 
-**Se o schema não existir:** aplique os arquivos de `sql/`, de `001` a `010`, nessa ordem, no
+**Se o schema não existir:** aplique os arquivos de `sql/`, de `001` a `011`, nessa ordem, no
 projeto Supabase do dono. Mostre o SQL antes de aplicar. Todos usam `IF NOT EXISTS`: reaplicar não estraga nada.
 
 ### Conduzindo a configuração

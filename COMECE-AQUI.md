@@ -54,7 +54,7 @@ quando o seu cliente ideal pedir.
 3. No que você copiou, troque `[YOUR-PASSWORD]` pela senha do item 1.
 4. Cole em `SUPABASE_DB_URL` no `.env.local`.
 5. Aplique a tabela. Peça ao agente — *"aplica os SQL da pasta sql no meu Supabase"* — ou faça na
-   mão, no **SQL Editor** do painel, os arquivos de `sql/` na ordem do número (`001` a `010`).
+   mão, no **SQL Editor** do painel, os arquivos de `sql/` na ordem do número (`001` a `011`).
 
 ✅ **Deu certo quando:** `node prospectar.mjs listar --nicho energia-solar` responde
 "0 leads" em vez de reclamar que a tabela não existe.
