@@ -265,7 +265,7 @@ async function comandoPesquisar(o) {
 async function comandoValidar(o) {
   const perfil = perfilNicho(o.nicho);
   const { rows } = await consultar(
-    `SELECT id, nome, categoria, resumo_site, total_avaliacoes, telefone_google, telefones_site,
+    `SELECT id, nome, categoria, resumo_site, raio_x_site, total_avaliacoes, telefone_google, telefones_site,
             whatsapp, site_vivo, seguidores
        FROM prospeccao.leads WHERE nicho = $1 AND status = 'enriquecido'`, [perfil.nicho]);
 

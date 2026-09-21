@@ -93,6 +93,11 @@ Formato: **data · o que aconteceu → o que mudou.**
 - 21/set/2026 · Timóteo MG: pelo site, a Odonto Excellence é franquia (1.348 unidades). A unidade de Coronel Fabriciano passou porque não tem site para o filtro ler: sem site, a franquia só aparece se alguém conferir.
 - 21/set/2026 · Governador Valadares MG: Albertoni e Odontoclinic (implantes) saíram por "o site não fala do nicho": o resumo da IA dizia "implantodontia" e "implantes", e o `confirma` só tem "odontolog", "dentista"... → quem escreve o resumo diz o que a empresa É ("clínica odontológica especializada em implantes"). O filtro lê o resumo, não o site.
 - 21/set/2026 · Governador Valadares MG: a Master Odonto de GV e a de Ipatinga têm a mesma sócia na Receita (Michelle Gomes Pedra), com CNPJs diferentes: são dois leads, mas uma conversa só.
+- 21/set/2026 · Ipatinga MG (40 novas): a Radiodonto (radiologia que atende o pedido do dentista) passaria como clínica, porque "radiologia odontológica" bate no `confirma`. O raio-x da IA já dizia `do_nicho: false` e ninguém lia → o `validar` usa o `do_nicho` do raio-x depois do `descarta_forte`.
+- 21/set/2026 · Ipatinga MG: o site da Clínica Mais Sorriso era um domínio à venda (HugeDomains) e contava como site no ar → `enriquecerSite` reconhece domínio à venda/estacionado como site fora do ar.
+- 21/set/2026 · Ipatinga MG: a checagem do @ ficou rígida demais e recusou @rinnovare_odonto ("saúde") e @mitchellodontologia ("integrada") → saúde, estética, integrada, especializada, espaço, instituto e consultório entraram nas genéricas.
+- 21/set/2026 · Ipatinga MG: marca de duas letras ("HB") não vira palavra de marca, e a checagem caiu em "odontologia": HB Odontologia ficou com um @ de São Paulo e o CNPJ de "HB Inspeções" (mesmo CEP). Corrigido à mão; marca curta pede conferência humana.
+- 21/set/2026 · Ipatinga MG: a busca do Maps em Ipatinga trouxe a Dentista do Povo de Uberlândia (600 km). O kit não confere a cidade do lead contra a praça.
 
 ## Critérios citados e ainda não medidos
 
