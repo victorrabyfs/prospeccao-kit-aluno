@@ -86,6 +86,9 @@ Formato: **data · o que aconteceu → o que mudou.**
 - 21/set/2026 · Ipatinga MG: a Master Clinic (Av. Brasil, 685) ficou com o @masterodontoipa da Master Odonto (Av. Brasil, 460), porque bastava uma palavra da marca ("master") no @ → `perfilBate` exige todas as palavras da marca, e no texto como palavra inteira. "odontologico" entrou nas genéricas (só tinha "odontologica").
 - 21/set/2026 · Ipatinga MG: OdontoCompany e Rede Odonto saíram como outro ramo por "franquia" no resumo. São unidades que atendem paciente; ficam de fora por decisão (marketing centralizado na franqueadora), não por erro.
 - 21/set/2026 · o primeiro `ia gravar` com sites falhou: faltava a coluna `raio_x_site` → `sql/011-raio-x-site.sql`.
+- 21/set/2026 · Coronel Fabriciano MG: `multlinks.com` e `contate.me` (páginas de links) contavam como site → entraram nos agregadores. Página de links vira sem site, mas os contatos dela (WhatsApp, Instagram, CNPJ) continuam valendo; a página do WhatsApp ou da rede social, não.
+- 21/set/2026 · Coronel Fabriciano MG: WhatsApp no formato antigo (55 31 9728-1019, sem o nono dígito) não contava como celular e reprovava a clínica → `normalizarTelefone` completa o 9 quando o número de 8 dígitos começa em 6 a 9.
+- 21/set/2026 · Coronel Fabriciano MG: OralDents saiu por "rede de clínicas", pelo mesmo motivo das franquias.
 
 ## Critérios citados e ainda não medidos
 
