@@ -119,7 +119,8 @@ async function enriquecerUm(lead, pesos) {
     // o texto fica guardado: quem lê é a IA da conversa, depois (comando `ia`)
     const texto_site = dados.site_vivo && dados.texto?.length >= 200 ? dados.texto : null;
     const nota = classificar(lead, dados, pesos);
-    const situacao_site = dados.site_vivo ? 'com_site' : 'site_morto';
+    // WhatsApp ou rede social no lugar do site não é site fora do ar: é empresa sem site (outra venda)
+    const situacao_site = dados.site_vivo ? 'com_site' : dados.nao_e_site ? 'sem_site' : 'site_morto';
     await salvarEnriquecimento(lead.id, {
       site: lead.site, ...dados, texto_site, ...nota, status: 'enriquecido',
       situacao_site,
@@ -164,6 +165,9 @@ async function comandoEnriquecer(o) {
 //   sem site      → procura o site; só vira site se o telefone dele bater com o do Maps (aí relê o site inteiro)
 //   sem Instagram → procura o @; conta como pista e o comando `instagram` confere o perfil pelo Apify
 //   sem LinkedIn  → só se o LinkedIn pesa no nicho (peso zero não gasta busca)
+// "sem site" inclui quem divulga WhatsApp ou rede social no lugar do site: o campo site vem preenchido
+const semSite = (l) => !l.site || l.situacao_site === 'sem_site';
+
 function somarSinal(lead, chave, pesos, nota) {
   if (lead.sinais?.[chave]?.tem || !(pesos[chave] > 0)) return null;
   const sinais = { ...lead.sinais, [chave]: { tem: true, pontos: pesos[chave], nota } };
@@ -182,7 +186,7 @@ async function comandoPesquisar(o) {
   const faltaLinkedin = pesos.linkedin > 0 ? 'OR linkedin IS NULL' : '';
   const { rows: fila } = await consultar(
     `SELECT * FROM prospeccao.leads
-      WHERE ${onde} AND status = 'enriquecido' AND (site IS NULL OR instagram IS NULL ${faltaLinkedin})
+      WHERE ${onde} AND status = 'enriquecido' AND (site IS NULL OR situacao_site = 'sem_site' OR instagram IS NULL ${faltaLinkedin})
             ${o.refazer ? '' : 'AND pesquisado_em IS NULL'}
       ORDER BY score DESC, total_avaliacoes DESC NULLS LAST LIMIT ${limite}`, params);
   if (!fila.length) { console.log('\n✓ Ninguém com site, Instagram ou LinkedIn para pesquisar.'); return; }
@@ -192,7 +196,7 @@ async function comandoPesquisar(o) {
   console.log(`\n🔍 Pesquisa no Google (${nomeMotor}) · ${perfil.rotulo} · ${fila.length} leads\n`);
   const conta = { buscas: 0, site: 0, instagram: 0, linkedin: 0 };
   await preBuscar(fila.flatMap((l) => [
-    ...(!l.site || !l.instagram ? [primeiraBusca.site(l)] : []),
+    ...(semSite(l) || !l.instagram ? [primeiraBusca.site(l)] : []),
     ...(!l.linkedin && pesos.linkedin > 0 ? [primeiraBusca.linkedin(l)] : []),
   ]));
   const umLead = async (lead) => {
@@ -200,7 +204,7 @@ async function comandoPesquisar(o) {
     const achou = [];
     try {
       // 1. o site
-      if (!lead.site) {
+      if (semSite(lead)) {
         const { site, agregador } = await procurarSite(lead, s);
         if (site) {
           const dados = await enriquecerSite(site).catch(() => null);

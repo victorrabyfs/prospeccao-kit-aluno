@@ -82,6 +82,11 @@ Formato: **data · o que aconteceu → o que mudou.**
 
 <!-- data · o que aconteceu → o que mudou. O agente propõe uma linha aqui ao fim de toda rodada com surpresa. -->
 
+- 21/set/2026 · Ipatinga MG: o "site" da Vitale no Maps era um bit.ly que caía no WhatsApp. Contou como site no ar (+25) e o Instagram lido foi o @whatsapp (5,3 mi seguidores) → `enriquecerSite` trata WhatsApp, rede social e agregador como **sem site** (guarda o número do WhatsApp) e a pesquisa procura o site verdadeiro dessa empresa.
+- 21/set/2026 · Ipatinga MG: a Master Clinic (Av. Brasil, 685) ficou com o @masterodontoipa da Master Odonto (Av. Brasil, 460), porque bastava uma palavra da marca ("master") no @ → `perfilBate` exige todas as palavras da marca, e no texto como palavra inteira. "odontologico" entrou nas genéricas (só tinha "odontologica").
+- 21/set/2026 · Ipatinga MG: OdontoCompany e Rede Odonto saíram como outro ramo por "franquia" no resumo. São unidades que atendem paciente; ficam de fora por decisão (marketing centralizado na franqueadora), não por erro.
+- 21/set/2026 · o primeiro `ia gravar` com sites falhou: faltava a coluna `raio_x_site` → `sql/011-raio-x-site.sql`.
+
 ## Critérios citados e ainda não medidos
 
 - Tempo de empresa e porte na Receita como requisito (o dado já vem no `cnpj`).
