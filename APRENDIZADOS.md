@@ -89,6 +89,8 @@ Formato: **data · o que aconteceu → o que mudou.**
 - 21/set/2026 · Coronel Fabriciano MG: `multlinks.com` e `contate.me` (páginas de links) contavam como site → entraram nos agregadores. Página de links vira sem site, mas os contatos dela (WhatsApp, Instagram, CNPJ) continuam valendo; a página do WhatsApp ou da rede social, não.
 - 21/set/2026 · Coronel Fabriciano MG: WhatsApp no formato antigo (55 31 9728-1019, sem o nono dígito) não contava como celular e reprovava a clínica → `normalizarTelefone` completa o 9 quando o número de 8 dígitos começa em 6 a 9.
 - 21/set/2026 · Coronel Fabriciano MG: OralDents saiu por "rede de clínicas", pelo mesmo motivo das franquias.
+- 21/set/2026 · Timóteo MG: a Ortocenter de Timóteo usa o mesmo WhatsApp da de Ipatinga, e as duas saíram por "celular repetido (central)", inclusive o melhor lead da base → o `validar` só chama de central o número repetido em empresas diferentes; unidades com o mesmo domínio de site contam como uma empresa.
+- 21/set/2026 · Timóteo MG: pelo site, a Odonto Excellence é franquia (1.348 unidades). A unidade de Coronel Fabriciano passou porque não tem site para o filtro ler: sem site, a franquia só aparece se alguém conferir.
 
 ## Critérios citados e ainda não medidos
 

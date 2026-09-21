@@ -270,11 +270,15 @@ async function comandoValidar(o) {
        FROM prospeccao.leads WHERE nicho = $1 AND status = 'enriquecido'`, [perfil.nicho]);
 
   // Celular que aparece em mais de uma empresa (em qualquer nicho) é central ou agência, não o dono.
+  // Unidades com o mesmo site são a mesma empresa: a central delas é do dono (Ortocenter Ipatinga e Timóteo).
   const { rows: rep } = await consultar(
     `SELECT tel FROM (
-       SELECT unnest(array_remove(ARRAY[whatsapp, telefone_google] || telefones_site, NULL)) AS tel, google_id
+       SELECT unnest(array_remove(ARRAY[whatsapp, telefone_google] || telefones_site, NULL)) AS tel,
+              CASE WHEN situacao_site = 'com_site'
+                   THEN substring(lower(coalesce(site_url_final, site)) from '^https?://(?:www\\.)?([^/:?#]+)')
+              END AS dominio, google_id
          FROM prospeccao.leads) t
-      GROUP BY tel HAVING count(DISTINCT google_id) > 1`);
+      GROUP BY tel HAVING count(DISTINCT coalesce(dominio, google_id)) > 1`);
   const repetidos = new Set(rep.map((r) => r.tel));
 
   let dentro = 0;
