@@ -91,6 +91,8 @@ Formato: **data · o que aconteceu → o que mudou.**
 - 21/set/2026 · Coronel Fabriciano MG: OralDents saiu por "rede de clínicas", pelo mesmo motivo das franquias.
 - 21/set/2026 · Timóteo MG: a Ortocenter de Timóteo usa o mesmo WhatsApp da de Ipatinga, e as duas saíram por "celular repetido (central)", inclusive o melhor lead da base → o `validar` só chama de central o número repetido em empresas diferentes; unidades com o mesmo domínio de site contam como uma empresa.
 - 21/set/2026 · Timóteo MG: pelo site, a Odonto Excellence é franquia (1.348 unidades). A unidade de Coronel Fabriciano passou porque não tem site para o filtro ler: sem site, a franquia só aparece se alguém conferir.
+- 21/set/2026 · Governador Valadares MG: Albertoni e Odontoclinic (implantes) saíram por "o site não fala do nicho": o resumo da IA dizia "implantodontia" e "implantes", e o `confirma` só tem "odontolog", "dentista"... → quem escreve o resumo diz o que a empresa É ("clínica odontológica especializada em implantes"). O filtro lê o resumo, não o site.
+- 21/set/2026 · Governador Valadares MG: a Master Odonto de GV e a de Ipatinga têm a mesma sócia na Receita (Michelle Gomes Pedra), com CNPJs diferentes: são dois leads, mas uma conversa só.
 
 ## Critérios citados e ainda não medidos
 
